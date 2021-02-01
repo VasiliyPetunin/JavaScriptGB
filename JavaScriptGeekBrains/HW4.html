@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW4</title>
+</head>
+<body>
+    <script>
+
+        "use strict"
+
+        // Задание 1.1:
+        // ES5:
+        function Product (name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        Product.prototype.make25PercentDiscount = function () {
+            this.price = this.price - (this.price * 25 / 100);
+        }
+
+        // ES6:
+        class Product1 {
+            constructor (name, price) {
+                this.name = name;
+                this.price = price;
+            }
+
+            make25PercentDiscount () {
+                this.price = this.price - (this.price * 25 / 100);
+            }
+        }
+
+        // Задание 1.2:
+        // ES5:
+        function Post (author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        Post.prototype.edit = function (newText) {
+            this.text = newText;
+        }
+
+        function AttachedPost (author, text, date, highlighted) {
+            Post.call(this, author, text, date);
+            this.highlighted = false;
+        }
+
+        AttachedPost.prototype = Object.create(Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        }
+
+        // ES6:
+        class Post1 {
+            constructor (author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+
+            edit (newText) {
+                this.text = newText;
+            }
+        }
+
+        class AttachedPost1 extends Post1 {
+            constructor (author, text, date, highlighted) {
+                super (author, text, date);
+                this.highlighted = false;
+            }
+
+            makeTextHighlighted () {
+                this.highlighted = true;
+            }
+        }
+    </script>
+</body>
+</html>
