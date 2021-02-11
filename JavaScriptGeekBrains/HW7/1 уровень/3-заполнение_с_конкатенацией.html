@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        'use strict'
+
+        let totalString = "";
+
+        /* Задание.
+        Дописывайте в строку totalString с помощью цикла и конкатенации строки,
+        так, чтобы итоговое значение в totalString получилось: слово1слово2слово3
+        */
+
+
+        // должно вывести:
+        // слово1слово2слово3
+
+        for (let i = 1; i <= 3; i++) {
+            totalString = totalString + `слово${i}`;
+        }
+
+        console.log(totalString);
+    </script>
+</body>
+</html>
