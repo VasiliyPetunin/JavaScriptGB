@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW2</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        // 1-ое задание:
+        //пример 1
+        let a = 1, b = 1, c, d;
+        c = ++a; // Оператор инкремента в префиксной форме сначала добавляет к значению переменной а единицу(a = 2), потом присваивает результат переменной с
+        alert(c); // ответ: 2
+
+        //пример 2
+        d = b++; // Сначала присваивание значения переменной b переменной d, потом срабатывание постфиксного инкремента(b = 2) 
+        alert(d); //ответ: 1
+
+        //пример 3
+        c = 2 + ++a; // Сначала срабатывание инкремента(a = 1 + 2), затем сложение и присванивание переменной с нового значения
+        alert(c); //ответ: 5
+
+        //пример 4
+        d = 2 + b++; // Сначала сложение(2 + 2), затем исполнение постфиксного инкремента(b = 3)
+        alert(d); //ответ: 4
+        alert(a); //ответ: 3;   Начальное значение + 2 префиксных инкремента(примеры 1 и 3)
+        alert(b); //ответ: 3;   Начальное значение + 2 постфиксных инкремента(примеры 2 и 4)
+
+        // 2-ое задание:
+        let a = 2;
+        let x = 1 + (a *= 2); // ответ: 5
+        // 1) Выполнение действий в скобках(а = а(2) * 2)
+        // 2) Сложение результата в скобках с единицей(1 + 4)
+        // 3) Присваивание переменной х полученного результата(х = 5)
+
+    </script>
+
+    <script>
+        // 3-е задание:
+        let a = prompt("Введите первое число:");
+        a = Number(a);
+        let b = prompt("Введите второе число");
+        b = Number(b);
+
+        if (a >= 0 && b >= 0) {
+            let difference = a - b;
+            alert ("Разность двух положительных чисел: " + difference);
+        }   else if (a < 0 && b < 0) {
+            let productOfNumbers = a * b;
+            alert ("Произведение двух отрицательных чисел: " + productOfNumbers);
+        }   else {
+            let sum = a + b;
+            alert ("Сумма двух чисел с разными знаками: " + sum);
+        }
+    </script>
+
+    <script>
+        'use strict'
+        
+        // 4-е задание:
+        function addition (firstNumber, secondNumber) {
+            let additionResult = firstNumber + secondNumber;
+            return additionResult;
+        }
+
+        let additionNumberOne = prompt ("Введите первое число для высчитывания суммы: ");
+        additionNumberOne = Number(additionNumberOne);
+        let additionNumberTwo = prompt ("Введите второе число для высчитывания суммы: ");
+        additionNumberTwo = Number(additionNumberTwo);
+
+        let additionResult = addition (additionNumberOne, additionNumberTwo);
+        alert ("Сумма чисел, которые вы ввели: " + additionResult);
+
+
+        function subtraction (firstNumber, secondNumber) {
+            let subtractionResult = firstNumber - secondNumber;
+            return subtractionResult;
+        }
+
+        let subtractionNumberOne = prompt ("Введите первое число для высчитывания разности: ");
+        subtractionNumberOne = Number(subtractionNumberOne);
+        let subtractionNumberTwo = prompt ("Введите второе число для высчитывания разности: ");
+        subtractionNumberTwo = Number(subtractionNumberTwo);
+
+        let subtractionResult = subtraction (subtractionNumberOne, subtractionNumberTwo);
+        alert ("Разность чисел, которые вы ввели: " + subtractionResult);
+
+
+        function multiplication (firstNumber, secondNumber) {
+            let multiplicationResult = firstNumber * secondNumber;
+            return multiplicationResult;
+        }
+
+        let multiplicationNumberOne = prompt ("Введите первое число для высчитывания произведения: ");
+        multiplicationNumberOne = Number(multiplicationNumberOne);
+        let multiplicationNumberTwo = prompt ("Введите второе число для высчитывания произведения: ");
+        multiplicationNumberTwo = Number(multiplicationNumberTwo);
+
+        let multiplicationResult = multiplication (multiplicationNumberOne, multiplicationNumberTwo);
+        alert ("Произведение чисел, которые вы ввели: " + multiplicationResult);
+
+
+        function division (firstNumber, secondNumber) {
+            let divisionResult = firstNumber / secondNumber;
+            return divisionResult;
+        }
+
+        let divisionNumberOne = prompt ("Введите первое число для высчитывания частного: ");
+        divisionNumberOne = Number(divisionNumberOne);
+        let divisionNumberTwo = prompt ("Введите второе число для высчитывания частного: ");
+        divisionNumberTwo = Number(divisionNumberTwo);
+
+        let divisionResult = division (divisionNumberOne, divisionNumberTwo);
+        alert ("Частное чисел, которые вы ввели: " + divisionResult);
+
+        // 5-е задание:
+        function mathOperation (arg1, arg2, operation) {
+            let mathOperationResultFunction;
+            switch (operation) {
+                case 'Сложение':
+                    mathOperationResultFunction = addition (arg1, arg2);
+                    return mathOperationResultFunction;
+                    break;
+                case 'Вычитание':
+                    mathOperationResultFunction = subtraction (arg1, arg2);
+                    return mathOperationResultFunction;
+                    break;
+                case 'Умножение':
+                    mathOperationResultFunction = multiplication (arg1, arg2);
+                    return mathOperationResultFunction;
+                    break;
+                case 'Деление':
+                    mathOperationResultFunction = division (arg1, arg2);
+                    return mathOperationResultFunction;
+                    break;
+                default:
+                    alert ("Введённой Вами математической операции не существует, или введённое Вами название математической операции не соответствует образцу!");
+                    break;
+            }
+        }
+
+        let mathOperationName = prompt ("Введите название математической операции, которую желаете выполнить, в соответствии с образцом (Названия: 'Сложение' , 'Вычитание' , 'Умножение' , 'Деление' ): ");
+        let mathOperationArg1 = +prompt ("Введите первое число: ");
+        let mathOperationArg2 = +prompt ("Введите второе число: ");
+
+        let mathOperationResult = mathOperation (mathOperationArg1, mathOperationArg2, mathOperationName);
+        alert ("Результат выбранной математической операции: " + mathOperationResult);
+    </script>
+</body>
+</html>
