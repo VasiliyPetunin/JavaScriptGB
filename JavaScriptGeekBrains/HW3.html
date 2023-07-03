@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW3</title>
+</head>
+<body>
+    <script>
+        // 1-е задание:
+        let numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        function outputOfNumbers (numbers) {
+            for (let i = 0; i < numbers.length; i++) {
+                let number = i;
+                if (i == 0) {
+                    console.log(i + " - это ноль.")
+                }
+                let remainder = i % 2;
+                if (remainder == 0) {
+                    console.log(i + " - это чётное число.");
+                }   else if (remainder != 0) {
+                    console.log(i + " - это нечётное число.")
+                }
+            }
+        }
+
+        outputOfNumbers(numbersArray);
+
+        // 2-е задание:
+        const post = {
+            author: "John", //вывести этот текст
+            postId: 23,
+            comments: [
+                {
+                    userId: 10,
+                    userName: "Alex",
+                    text: "lorem ipsum",
+                    rating: {
+                        likes: 10,
+                        dislikes: 2 //вывести это число
+                    }
+                },
+                {
+                    userId: 5, //вывести это число
+                    userName: "Jane",
+                    text: "lorem ipsum 2", //вывести этот текст
+                    rating: {
+                        likes: 3,
+                        dislikes: 1
+                    }
+                },
+            ]
+        };
+
+        console.log(post.author);
+        console.log(post.comments[0].rating.dislikes);
+        console.log(post.comments[1].userId);
+        console.log(post.comments[1].text);
+
+        // 3-е задание:
+        const task3Products = [
+            {
+                id: 3,
+                price: 200,
+            },
+            {
+                id: 4,
+                price: 900,
+            },
+            {
+                id: 1,
+                price: 1000,
+            },
+        ];
+
+        task3Products.forEach(function (product) {
+            product.price = product.price - (product.price * 15 / 100);
+            console.log(product.price);
+        });
+
+        // 4-е задание:
+        const task4Products = [
+            {
+                id: 3,
+                price: 127,
+                photos: [
+                    "1.jpg",
+                    "2.jpg",
+                ]
+            },
+            {
+                id: 5,
+                price: 499,
+                photos: []
+            },
+            {
+                id: 10,
+                price: 26,
+                photos: [
+                    "3.jpg"
+                ]
+            },
+            {
+                id: 8,
+                price: 78,
+            },
+        ];
+
+        let productsWithPhoto = task4Products.filter(function (product) {
+            return product.hasOwnProperty("photos") && product.photos.length > 0;                                                                                                                                                                                                                                                                                 
+        })
+
+        console.log(productsWithPhoto);
+
+        console.log(task4Products.sort(function (obj1, obj2) {
+            if (obj1.price < obj2.price) {
+                return -1;
+            }
+            if (obj1.price > obj2.price) {
+                return 1;
+            }
+            if (obj1.price == obj2.price) {
+                return 0;
+            }
+        }))
+
+        // 6-е задание:
+        const xObj = {
+            letter: 'x'
+        }
+
+        let coupleOfX = 'x';
+
+        for (i = 0; i < 20; i++) {
+            if (i == 0) {
+                console.log(coupleOfX);
+            }   else {
+                console.log(coupleOfX += xObj.letter);
+            }
+        }
+    </script>
+</body>
+</html>
